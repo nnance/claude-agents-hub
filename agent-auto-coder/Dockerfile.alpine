@@ -1,0 +1,74 @@
+# Build stage
+FROM node:20-alpine AS builder
+
+WORKDIR /app
+
+# Copy package files
+COPY package*.json ./
+COPY tsconfig.json ./
+
+# Install dependencies (including dev dependencies for build)
+RUN npm ci
+
+# Copy source code
+COPY src ./src
+
+# Build TypeScript
+RUN npm run build
+
+# Runtime stage
+FROM node:20-alpine
+
+# Install basic development tools and iptables/ipset
+RUN apk add --no-cache \
+  less \
+  git \
+  procps \
+  sudo \
+  fzf \
+  zsh \
+  man-pages \
+  unzip \
+  gnupg \
+  iptables \
+  ipset \
+  iproute2 \
+  bind-tools \
+  jq \
+  nano \
+  vim \
+  ripgrep \
+  curl
+
+# Install GitHub CLI from binary
+RUN curl -fsSL https://github.com/cli/cli/releases/download/v2.50.0/gh_2.50.0_linux_amd64.tar.gz | tar xz -C /tmp && \
+  mv /tmp/gh_2.50.0_linux_amd64/bin/gh /usr/local/bin/gh && \
+  rm -rf /tmp/gh_2.50.0_linux_amd64
+
+WORKDIR /app
+
+# Copy package files
+COPY package*.json ./
+
+# Install only production dependencies
+RUN npm ci --omit=dev
+
+# Copy built application from builder stage
+COPY --from=builder /app/dist ./dist
+
+# Create .env placeholder (will be provided at runtime)
+RUN echo "# Environment variables should be provided at runtime" > .env
+
+# Set user to non-root for security
+RUN adduser -D -u 1001 nodejs
+
+USER nodejs
+
+# Set working directory for input files (to be mounted at runtime)
+WORKDIR /app/input
+
+# Default entrypoint
+ENTRYPOINT ["node", "../dist/index.js"]
+
+# Default command (can be overridden with docker run)
+CMD ["Please provide a prompt as a command argument"]
