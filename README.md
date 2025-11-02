@@ -40,14 +40,12 @@ The Claude Agents Hub includes the following agents:
 - **[Auto Coder Agent](./agent-auto-coder/)**: An experimental tool that performs coding tasks via YOLO mode in a sandboxed environment.
 - **Meeting Summarizer Agent**: Summarizes meeting notes and action items from transcripts
 
-### Future Agents
-
-[ ] **Deep Research Agent**: Conducts in-depth research on specified topics and compiles comprehensive reports.
-[ ] **Email Assistant Agent**: Manages and responds to emails.
-[ ] **Customer Support Agent**: Handles customer inquiries and support tickets.
-[ ] **Content Generation Agent**: Creates blog posts, articles, and marketing content.
-[ ] **Scheduling Agent**: Manages calendars and schedules appointments.
-- And many more!
+### Future Agents (coming soon):
+- **Deep Research Agent**: Conducts in-depth research on specified topics and compiles comprehensive reports.
+- **Email Assistant Agent**: Manages and responds to emails.
+- **Customer Support Agent**: Handles customer inquiries and support tickets.
+- **Content Generation Agent**: Creates blog posts, articles, and marketing content.
+- **Scheduling Agent**: Manages calendars and schedules appointments.
 
 ## Contributing
 We welcome contributions from the community! If you have an idea for a new agent or want to improve an existing one, feel free to open a pull request.  Please follow our [contribution guidelines](CONTRIBUTING.md) for more information.
