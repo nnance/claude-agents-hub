@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
+import { writeFile } from "node:fs/promises";
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
-import { writeFile } from "fs/promises";
 import { z } from "zod";
 
 // API Configuration
@@ -584,6 +584,42 @@ server.registerTool(
 				},
 			],
 			structuredContent: JSON.parse(JSON.stringify(output)),
+		};
+	},
+);
+
+// Register download transcript tool
+server.registerTool(
+	"download_transcript",
+	{
+		title: "Download Meeting Transcript",
+		description:
+			"Download the transcript for a specific Fathom meeting recording",
+		inputSchema: {
+			recordingId: z
+				.number()
+				.describe("The recording ID to get the transcript for"),
+			filePath: z.string().describe("Path to write the transcript file"),
+		},
+		outputSchema: {
+			result: z.string().describe("Success message with file path"),
+		},
+	},
+	async (args) => {
+		const client = ensureFathomClient();
+		const result = await client.downloadTranscript(
+			args.recordingId,
+			args.filePath,
+		);
+
+		return {
+			content: [
+				{
+					type: "text",
+					text: result,
+				},
+			],
+			structuredContent: { result },
 		};
 	},
 );
