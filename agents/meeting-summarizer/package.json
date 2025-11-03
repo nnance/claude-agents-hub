@@ -1,0 +1,28 @@
+{
+  "name": "meeting-summarizer",
+  "version": "0.0.1",
+  "description": "An automated workflow system that uses AI agents to download, organize, and summarize meeting transcripts from Fathom. This project demonstrates a multi-agent orchestration pattern using the Anthropic Claude Agent SDK, where a planning agent creates a workflow plan that is then executed by specialized agents.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "start": "node ./dist/index.js",
+    "prestart": "npm run build",
+    "format": "biome check src --fix",
+    "lint": "biome check src",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@biomejs/biome": "^2.3.2",
+    "@types/node": "^24.10.0",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "@anthropic-ai/claude-agent-sdk": "^0.1.30",
+    "dotenv": "^17.2.3",
+    "zod": "^3.25.76"
+  }
+}
