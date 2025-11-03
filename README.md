@@ -37,8 +37,8 @@ To get started with the Claude Agents Hub, follow these steps:
 
 The Claude Agents Hub includes the following agents:
 
-- **[Auto Coder Agent](./agent-auto-coder/)**: An experimental tool that performs coding tasks via YOLO mode in a sandboxed environment.
-- **Meeting Summarizer Agent**: Summarizes meeting notes and action items from transcripts
+- **[Auto Coder](./agents//agent-auto-coder/)**: An experimental tool that performs coding tasks via YOLO mode in a sandboxed environment.
+- **[Meeting Summarizer](./agents/meeting-summarizer/)**: Summarizes meeting notes and action items from transcripts
 
 ### Future Agents (coming soon):
 - **Deep Research Agent**: Conducts in-depth research on specified topics and compiles comprehensive reports.
