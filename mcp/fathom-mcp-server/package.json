@@ -4,7 +4,7 @@
   "description": "Fathom meeting transcription MCP server - A Model Context Protocol (MCP) server that provides access to Fathom meeting recordings, summaries, and transcripts.",
   "main": "index.js",
   "type": "module",
-"bin": {
+  "bin": {
 		"fathom-mcp-server": "dist/index.js"
 	},
 	"scripts": {

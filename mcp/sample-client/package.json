@@ -1,0 +1,32 @@
+{
+	"name": "sample-client",
+	"version": "0.0.1",
+	"description": "This directory contains a sample client implementation for testing a MCP Server. The sample client demonstrates how to connect to the MCP server, authenticate, and interact with its APIs.",
+	"main": "./dist/index.js",
+	"type": "module",
+	"scripts": {
+		"build": "tsc",
+		"prestart": "npm run build",
+		"dev": "node src/index.ts",
+		"start": "node dist/index.js",
+		"lint": "biome check .",
+		"lint:fix": "biome check --write .",
+		"format": "biome format --write .",
+		"test": "node --test dist/*.test.js",
+		"test:watch": "node --test --watch dist/*.test.js",
+		"prepublishOnly": "npm run build"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"@biomejs/biome": "^2.3.2",
+		"@types/node": "^24.10.0",
+		"typescript": "^5.9.3"
+	},
+	"dependencies": {
+		"@anthropic-ai/sdk": "^0.68.0",
+		"@modelcontextprotocol/sdk": "^1.20.2",
+		"dotenv": "^17.2.3"
+	}
+}
