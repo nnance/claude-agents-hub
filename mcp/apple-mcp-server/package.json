@@ -1,0 +1,46 @@
+{
+	"name": "apple-mcp-server",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"type": "module",
+	"bin": {
+		"apple-calendar-mcp-server": "dist/calendar-server.js",
+		"apple-contacts-mcp-server": "dist/contacts-server.js",
+		"apple-notes-mcp-server": "dist/notes-server.js"
+	},
+	"scripts": {
+		"build": "tsc",
+		"dev:calendar": "node --loader ts-node/esm src/calendar-server.ts",
+		"dev:contacts": "node --loader ts-node/esm src/contacts-server.ts",
+		"dev:notes": "node --loader ts-node/esm src/notes-server.ts",
+		"start:calendar": "node dist/calendar-server.js",
+		"start:contacts": "node dist/contacts-server.js",
+		"start:notes": "node dist/notes-server.js",
+		"lint": "biome check .",
+		"lint:fix": "biome check --write .",
+		"format": "biome format --write .",
+		"test": "node --test dist/*.test.js",
+		"test:watch": "node --test --watch dist/*.test.js",
+		"prepublishOnly": "npm run build"
+	},
+	"keywords": [
+		"mcp",
+		"model-context-protocol",
+		"apple",
+		"notes",
+		"caledndar",
+		"contacts"
+	],
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"@biomejs/biome": "^2.3.3",
+		"@types/node": "^24.10.0",
+		"typescript": "^5.9.3"
+	},
+	"dependencies": {
+		"@modelcontextprotocol/sdk": "^1.21.0",
+		"zod": "^3.25.76"
+	}
+}

@@ -42,6 +42,7 @@ The Claude Agents Hub includes the following agents:
 
 ### Future Agents (coming soon):
 - **Deep Research Agent**: Conducts in-depth research on specified topics and compiles comprehensive reports.
+- **Investment Research Agent**: Analyzes financial data and provides investment recommendations.
 - **Email Assistant Agent**: Manages and responds to emails.
 - **Customer Support Agent**: Handles customer inquiries and support tickets.
 - **Content Generation Agent**: Creates blog posts, articles, and marketing content.
