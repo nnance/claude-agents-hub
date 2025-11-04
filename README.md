@@ -38,7 +38,14 @@ To get started with the Claude Agents Hub, follow these steps:
 The Claude Agents Hub includes the following agents:
 
 - **[Auto Coder](./agents//agent-auto-coder/)**: An experimental tool that performs coding tasks via YOLO mode in a sandboxed environment.
+
 - **[Meeting Summarizer](./agents/meeting-summarizer/)**: Summarizes meeting notes and action items from transcripts
+
+## Available MCP Servers
+
+- **[Apple MCP Server](./mcp/apple-mcp-server/)**: A collection of MCP servers for macOS that provide access to native Apple applications (Calendar, Contacts, and Notes) via AppleScript.
+
+- **[Fathom MCP Server](./mcp/fathom-mcp-servers/)**: Integrates with the Fathom API to provide access to meeting recordings, summaries, and transcripts
 
 ### Future Agents (coming soon):
 - **Deep Research Agent**: Conducts in-depth research on specified topics and compiles comprehensive reports.

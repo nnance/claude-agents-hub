@@ -103,16 +103,6 @@ npx @modelcontextprotocol/inspector node dist/notes-server.js
 
 ### Calendar Server Tools
 
-#### list_calendars
-
-List all available calendars in Apple Calendar.
-
-**Input Schema:**
-- None
-
-**Output:**
-- `calendars` (array): Array of calendar names
-
 #### list_events
 
 List events from a specific calendar within a date range.
@@ -313,6 +303,13 @@ Get the full content of a specific note by title.
 - `content` (string): The note's body content
 
 ## Available Resources
+
+### apple-calendar://calendars
+
+List all available calendars in Apple Calendar.
+
+**Returns:**
+- `calendars` (array): Array of calendar names
 
 ### apple-calendar://status
 

@@ -14,18 +14,16 @@ const server = new McpServer({
 // Initialize Calendar manager
 const calendarManager = new CalendarManager();
 
-// Register list calendars tool
-server.registerTool(
-	"list_calendars",
+// Register list calendars resource
+server.registerResource(
+	"list-calendars",
+	"apple-calendar://calendars",
 	{
 		title: "List Calendars",
 		description: "List all available calendars in Apple Calendar",
-		inputSchema: {},
-		outputSchema: {
-			calendars: z.array(z.string()),
-		},
+		mimeType: "application/json",
 	},
-	async () => {
+	async (uri) => {
 		const calendars = await calendarManager.listCalendars();
 
 		if (!calendars) {
@@ -35,13 +33,13 @@ server.registerTool(
 		const output = { calendars };
 
 		return {
-			content: [
+			contents: [
 				{
-					type: "text",
+					uri: uri.href,
+					mimeType: "application/json",
 					text: JSON.stringify(output, null, 2),
 				},
 			],
-			structuredContent: JSON.parse(JSON.stringify(output)),
 		};
 	},
 );

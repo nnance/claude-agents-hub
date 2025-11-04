@@ -4,6 +4,8 @@ This directory contains the server implementations for the MCP (Modular Control 
 
 ## Available Servers
 
+**[Apple MCP Server](./apple-mcp-server/README.md)**: A collection of MCP servers for macOS that provide access to native Apple applications (Calendar, Contacts, and Notes) via AppleScript.
+
 **[Fathom MCP Server](./fathom-mcp-servers/README.md)**: A server that integrates with the Fathom API to provide access to meeting recordings, summaries, and transcripts.
 
 ## Getting Started
